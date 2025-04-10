@@ -60,6 +60,21 @@ const caesarCipher = function caesarCipher(plainText, shiftFactor) {
   return cipherText.join('');
 };
 
+const analyzeArray = function analyzeArray(inputArray) {
+  const { length } = inputArray;
+  const totalSum = inputArray.reduce((prev, cur) => (prev + cur), 0);
+  const average = Number((totalSum / length).toFixed(2));
+  const min = Math.min(...inputArray);
+  const max = Math.max(...inputArray);
+
+  return {
+    average,
+    min,
+    max,
+    length,
+  };
+};
+
 export {
-  calculator, capitalize, reverseString, caesarCipher,
+  calculator, capitalize, reverseString, caesarCipher, analyzeArray,
 };

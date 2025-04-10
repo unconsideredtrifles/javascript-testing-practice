@@ -1,6 +1,6 @@
 import { describe, test, expect } from '@jest/globals';
 import {
-  calculator, capitalize, reverseString, caesarCipher,
+  calculator, capitalize, reverseString, caesarCipher, analyzeArray,
 } from './index.js';
 
 describe('capitalize()', () => {
@@ -84,5 +84,37 @@ describe('caesar cipher', () => {
     expect(caesarCipher('My favorite number is 123!', 8)).toBe(
       'Ug nidwzqbm vcujmz qa 123!',
     );
+  });
+
+  describe('analyzeArray()', () => {
+    test('normal path testing', () => {
+      expect(analyzeArray([1, 8, 3, 4, 2, 6])).toEqual(
+        {
+          average: 4,
+          min: 1,
+          max: 8,
+          length: 6,
+        },
+      );
+      expect(analyzeArray([7, 6, 5, 8, 1, 0])).toEqual(
+        {
+          average: 4.5,
+          min: 0,
+          max: 8,
+          length: 6,
+        },
+      );
+    });
+
+    test('imprecise floating-point member test', () => {
+      expect(analyzeArray([0, 0, 1])).toEqual(
+        {
+          average: 0.33,
+          min: 0,
+          max: 1,
+          length: 3,
+        },
+      );
+    });
   });
 });
