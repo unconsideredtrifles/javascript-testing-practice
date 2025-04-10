@@ -1,5 +1,7 @@
 import { describe, test, expect } from '@jest/globals';
-import { calculator, capitalize, reverseString } from './index.js';
+import {
+  calculator, capitalize, reverseString, caesarCipher,
+} from './index.js';
 
 describe('capitalize()', () => {
   test('all lowercase test', () => {
