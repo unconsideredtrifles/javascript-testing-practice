@@ -29,4 +29,37 @@ const calculator = {
   },
 };
 
-export { calculator, capitalize, reverseString };
+const getSameCaseLetterA = function getSameCaseLetterA(letter) {
+  const codePoint = letter.codePointAt(0);
+  if (codePoint >= 97 && codePoint <= 122) {
+    return 'a';
+  }
+  if (codePoint >= 65 && codePoint <= 90) {
+    return 'A';
+  }
+  return 'not letter';
+};
+
+const encryptLetter = function encryptLetter(eachLetter, shiftFactor) {
+  const baseLetter = getSameCaseLetterA(eachLetter);
+  if (baseLetter === 'not letter') {
+    return eachLetter;
+  }
+  const baseCodePoint = baseLetter.codePointAt(0);
+  const alphaIdx = eachLetter.codePointAt(0) - baseCodePoint;
+  const cipherAlphaIdx = (alphaIdx + shiftFactor) % 26;
+  const cipherLetter = String.fromCodePoint(baseCodePoint + cipherAlphaIdx);
+  return cipherLetter;
+};
+
+const caesarCipher = function caesarCipher(plainText, shiftFactor) {
+  const cipherText = Array.from(plainText, (eachLetter) => (
+    encryptLetter(eachLetter, shiftFactor)
+  ));
+
+  return cipherText.join('');
+};
+
+export {
+  calculator, capitalize, reverseString, caesarCipher,
+};

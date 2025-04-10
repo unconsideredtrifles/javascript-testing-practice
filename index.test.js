@@ -59,3 +59,30 @@ describe('calculator util', () => {
     expect(calculator.divide(9, 3)).toBe(9 / 3);
   });
 });
+
+describe('caesar cipher', () => {
+  test('lowercase test', () => {
+    expect(caesarCipher('abc', 1)).toBe('bcd');
+    expect(caesarCipher('xyz', 3)).toBe('abc');
+    expect(caesarCipher('abc', 5)).toBe('fgh');
+  });
+
+  test('uppercase test', () => {
+    expect(caesarCipher('ABC', 1)).toBe('BCD');
+    expect(caesarCipher('XYZ', 3)).toBe('ABC');
+    expect(caesarCipher('ABC', 5)).toBe('FGH');
+  });
+
+  test('mixed-case test', () => {
+    expect(caesarCipher('aBc', 1)).toBe('bCd');
+    expect(caesarCipher('xYz', 3)).toBe('aBc');
+    expect(caesarCipher('Abc', 5)).toBe('Fgh');
+  });
+
+  test('test punctuation', () => {
+    expect(caesarCipher('You too, Brutus?', 5)).toBe('Dtz ytt, Gwzyzx?');
+    expect(caesarCipher('My favorite number is 123!', 8)).toBe(
+      'Ug nidwzqbm vcujmz qa 123!',
+    );
+  });
+});
