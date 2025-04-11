@@ -45,18 +45,18 @@ describe('calculator util', () => {
   });
 
   test('testing multiplication', () => {
-    expect(calculator.multiply(2, 3)).toBe(2 * 3);
-    expect(calculator.multiply(5, 2)).toBe(5 * 2);
+    expect(calculator.mul(2, 3)).toBe(2 * 3);
+    expect(calculator.mul(5, 2)).toBe(5 * 2);
   });
 
   test('test division', () => {
-    expect(calculator.divide(3, 2)).toBe(3 / 2);
-    expect(calculator.divide(9, 3)).toBe(9 / 3);
+    expect(calculator.div(3, 2)).toBe(3 / 2);
+    expect(calculator.div(9, 3)).toBe(9 / 3);
   });
 
   test('test division', () => {
-    expect(calculator.divide(3, 2)).toBe(3 / 2);
-    expect(calculator.divide(9, 3)).toBe(9 / 3);
+    expect(calculator.div(3, 2)).toBe(3 / 2);
+    expect(calculator.div(9, 3)).toBe(9 / 3);
   });
 });
 
